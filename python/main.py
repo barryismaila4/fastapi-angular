@@ -12,7 +12,8 @@ app = FastAPI()
 # Ajouter le middleware CORS
 origins = [
     "http://localhost",  # Autoriser les requêtes depuis http://localhost
-    "http://localhost:8080",  # Autoriser les requêtes depuis http://localhost:8080 (par exemple, pour Angular)
+    "http://localhost:8080", 
+    "http://localhost:4200", # Autoriser les requêtes depuis http://localhost:8080 (par exemple, pour Angular)
 ]
 
 app.add_middleware(

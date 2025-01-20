@@ -1,1 +1,18 @@
-<p>category-add works!</p>
+<div class="container">
+    <h2>Ajouter une nouvelle catégorie</h2>
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom de la catégorie</label>
+        <input type="text" id="name" formControlName="name" class="form-control" />
+        <div *ngIf="categoryForm.get('name')?.invalid && (categoryForm.get('name')?.touched || categoryForm.get('name')?.dirty)" class="text-danger">
+          Le nom est requis.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="categoryForm.invalid">Ajouter</button>
+    </form>
+  
+    <!-- Message de succès -->
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+  </div>

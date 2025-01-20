@@ -1,1 +1,25 @@
-<p>category-list works!</p>
+<div class="category-list">
+    <h2>Liste des catégories</h2>
+    <button (click)="addCategory()">Ajouter une catégorie</button>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let category of categories">
+          <td>{{ category.id }}</td>
+          <td>{{ category.name }}</td>
+          <td>
+            <button (click)="editCategory(category.id)">Modifier</button>
+            <button (click)="deleteCategory(category.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

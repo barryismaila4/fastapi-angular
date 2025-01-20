@@ -1,1 +1,14 @@
-<p>category-update works!</p>
+<div class="category-update">
+    <h2>Modifier la catégorie</h2>
+  
+    <form (ngSubmit)="updateCategory()">
+      <div>
+        <label for="name">Nom de la catégorie</label>
+        <input type="text" id="name" [(ngModel)]="category.name" name="name" required />
+      </div>
+  
+      <button type="submit">Mettre à jour</button>
+      <button type="button" (click)="router.navigate(['crud/category-list'])">Annuler</button>
+    </form>
+  </div>
+  
