@@ -31,7 +31,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   addCategory(): void {
-    this.router.navigate(['crud/category-add']);
+    this.router.navigate(['crud/category/add']);
   }
 
   deleteCategory(id: number): void {
