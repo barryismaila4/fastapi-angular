@@ -1,1 +1,40 @@
-<router-outlet></router-outlet>
+<body>
+<div class="navbar">
+    <h1>DeepShopCrud - Backoffice</h1>
+</div>
+
+<div class="sidebar">
+    <ul>
+        <li><a routerLink="/crud/category/list" aria-label="Liste des catégories">Catégories</a></li>
+        <li><a routerLink="/crud/magasin/list" aria-label="Liste des magasins">Magasins</a></li>
+        <li><a routerLink="/crud/commande/list" aria-label="Liste des commandes">Commandes</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <h2>Bienvenue dans le Backoffice</h2>
+    <div class="cards">
+        <div class="card">
+            <a routerLink="/crud/category/list">Catégories</a>
+        </div>
+        <div class="card">
+            <a routerLink="/crud/magasin/list">Magasins</a>
+        </div>
+        <div class="card">
+            <a routerLink="/crud/commande/list">Commandes</a>
+        </div>
+    </div>
+    <div class="button-group">
+        <button class="btn" routerLink="/crud/category/add">Ajouter une catégorie</button>
+        <button class="btn" routerLink="/crud/magasin/add">Ajouter un magasin</button>
+        <button class="btn" routerLink="/crud/commande/add">Ajouter une commande</button>
+    </div>
+    
+    <!-- Le contenu des composants enfants sera affiché ici -->
+    <router-outlet></router-outlet>
+</div>
+
+<div class="footer">
+    &copy; 2024 DeepShopCrud
+</div>
+</body>

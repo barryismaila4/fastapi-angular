@@ -1,1 +1,35 @@
-<p>magasin-list works!</p>
+<!-- magasin-list.component.html -->
+<div class="magasin-list">
+  <h2>Liste des magasins</h2>
+  <button (click)="addMagasin()">Ajouter un magasin</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Adresse</th>
+        <th>Produit</th>
+        <th>Détails</th>
+        <th>Prix</th>
+        <th>Catégorie</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let magasin of magasins">
+        <td>{{ magasin.id }}</td>
+        <td>{{ magasin.name }}</td>
+        <td>{{ magasin.adresse }}</td>
+        <td>{{ magasin.produit }}</td>
+        <td>{{ magasin.produitdetails }}</td>
+        <td>{{ magasin.produitprix }}</td>
+        <td>{{ magasin.category_name }}</td> <!-- Afficher le nom de la catégorie -->
+        <td>
+          <button (click)="editMagasin(magasin.id)">Modifier</button>
+          <button (click)="deleteMagasin(magasin.id)">Supprimer</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

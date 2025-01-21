@@ -1,0 +1,123 @@
+/* Container du tableau */
+.magasin-list {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 30px auto;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Titre */
+  h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Bouton "Ajouter un magasin" */
+  button {
+    padding: 8px 20px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+  }
+  
+  /* Tableau */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  td {
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease;
+  }
+  
+  td:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Boutons dans les actions */
+  td button {
+    padding: 6px 15px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    margin: 5px;
+  }
+  
+  td button:first-child {
+    background-color: #17a2b8;
+  }
+  
+  td button:first-child:hover {
+    background-color: #138496;
+    transform: scale(1.1);
+  }
+  
+  td button:last-child {
+    background-color: #dc3545;
+  }
+  
+  td button:last-child:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    table {
+      font-size: 12px;
+    }
+  
+    th, td {
+      padding: 8px;
+    }
+  
+    button {
+      font-size: 12px;
+      padding: 6px 15px;
+    }
+  
+    td button {
+      padding: 4px 10px;
+      font-size: 10px;
+    }
+  }
+  

@@ -1,0 +1,87 @@
+/* Style de base pour la page */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Titre de la page */
+  h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles généraux pour les formulaires */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input.form-control,
+  select.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  input.form-control:focus,
+  select.form-control:focus {
+    border-color: #0056b3;
+    outline: none;
+  }
+  
+  /* Message d'erreur */
+  .text-danger {
+    font-size: 12px;
+    color: #dc3545;
+    margin-top: 5px;
+  }
+  
+  /* Bouton d'envoi */
+  button.btn.btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button.btn.btn-primary:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
+  button.btn.btn-primary:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
+  /* Message de succès */
+  .alert-success {
+    background-color: #28a745;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  /* Espacement et alignement */
+  .mt-3 {
+    margin-top: 20px;
+  }
+  

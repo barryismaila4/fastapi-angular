@@ -1,1 +1,34 @@
-<p>commande-list works!</p>
+<div class="commande-list">
+    <h2>Liste des commandes</h2>
+    <button class="btn add-button" (click)="addCommande()">Ajouter une commande</button>
+  
+    <table class="commande-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date de commande</th>
+          <th>Magasin</th>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Nom d'utilisateur</th>
+          <th>Numéro d'utilisateur</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let commande of commandes">
+          <td>{{ commande.id }}</td>
+          <td>{{ commande.date_commande | date:'short' }}</td>
+          <td>{{ commande.magasin_name }}</td>
+          <td>{{ commande.product_name }}</td>
+          <td>{{ commande.quantity }}</td>
+          <td>{{ commande.username }}</td>
+          <td>{{ commande.usernumber }}</td>
+          <td>
+            <button class="btn edit-button" (click)="editCommande(commande.id)">Modifier</button>
+            <button class="btn delete-button" (click)="deleteCommande(commande.id)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>

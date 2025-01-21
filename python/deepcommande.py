@@ -14,10 +14,14 @@ def get_db_connection():
     )
 
 # Modèle Pydantic pour `DeepCommande`
+# Modèle Pydantic pour `DeepCommande` avec les nouveaux champs
 class DeepCommande(BaseModel):
     magasin_name: str  # Nom du magasin lié à la commande
     product_name: str  # Nom du produit commandé
     quantity: int  # Quantité commandée
+    username: str  # Nom de l'utilisateur qui passe la commande
+    usernumber: str  # Numéro de téléphone de l'utilisateur
+
 
 # Vérifier si un magasin existe dans la table DeepMagasin
 def check_magasin_exists(magasin_name: str, conn):
@@ -51,8 +55,8 @@ def add_commande(new_commande: DeepCommande):
     try:
         cursor = conn.cursor()
         cursor.execute(
-            "INSERT INTO deepcommande (magasin_name, product_name, quantity) VALUES (%s, %s, %s)",
-            (new_commande.magasin_name, new_commande.product_name, new_commande.quantity)
+            "INSERT INTO deepcommande (magasin_name, product_name, quantity, username, usernumber) VALUES (%s, %s, %s, %s, %s)",
+            (new_commande.magasin_name, new_commande.product_name, new_commande.quantity, new_commande.username, new_commande.usernumber)
         )
         conn.commit()
         cursor.close()
@@ -62,7 +66,6 @@ def add_commande(new_commande: DeepCommande):
     except mysql.connector.Error as err:
         conn.close()
         raise HTTPException(status_code=500, detail=f"Erreur lors de l'ajout de la commande: {err}")
-
 # Route pour supprimer une commande par ID
 @router.delete("/deletecommande/{commande_id}")
 def delete_commande(commande_id: int):

@@ -8,7 +8,7 @@ export class DeepMagasin {
     produit: string;
     produitdetails: string;
     produitprix: number;
-    category_name: DeepCategory; // Utilisation de DeepCategory pour représenter la relation
+    category_name: string; // Utilisation d'un string pour le nom de la catégorie
 
     constructor(
         id: number,
@@ -17,7 +17,7 @@ export class DeepMagasin {
         produit: string,
         produitdetails: string,
         produitprix: number,
-        category_name: DeepCategory
+        category_name: string
     ) {
         this.id = id;
         this.name = name;

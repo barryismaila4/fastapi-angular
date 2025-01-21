@@ -16,6 +16,7 @@ import { MagasinUpdateComponent } from './crudcomponent/magasin-update/magasin-u
 import { CommandeListComponent } from './crudcomponent/commande-list/commande-list.component';
 import { CommandeAddComponent } from './crudcomponent/commande-add/commande-add.component';
 import { CommandeUpdateComponent } from './crudcomponent/commande-update/commande-update.component';
+import { AllTemplateBackComponent } from './crudcomponent/all-template-back/all-template-back.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CommandeUpdateComponent } from './crudcomponent/commande-update/command
     MagasinUpdateComponent,
     CommandeListComponent,
     CommandeAddComponent,
-    CommandeUpdateComponent
+    CommandeUpdateComponent,
+    AllTemplateBackComponent
   ],
   imports: [
     BrowserModule,

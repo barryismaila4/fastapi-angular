@@ -1,1 +1,36 @@
-<p>magasin-update works!</p>
+<!-- magasin-update.component.html -->
+<div class="magasin-update">
+  <h2>Modifier le magasin</h2>
+
+  <form (ngSubmit)="updateMagasin()">
+    <div>
+      <label for="name">Nom du magasin</label>
+      <input type="text" id="name" [(ngModel)]="magasin.name" name="name" required />
+    </div>
+    <div>
+      <label for="adresse">Adresse</label>
+      <input type="text" id="adresse" [(ngModel)]="magasin.adresse" name="adresse" required />
+    </div>
+    <div>
+      <label for="produit">Produit</label>
+      <input type="text" id="produit" [(ngModel)]="magasin.produit" name="produit" required />
+    </div>
+    <div>
+      <label for="produitdetails">Détails du produit</label>
+      <input type="text" id="produitdetails" [(ngModel)]="magasin.produitdetails" name="produitdetails" required />
+    </div>
+    <div>
+      <label for="produitprix">Prix du produit</label>
+      <input type="number" id="produitprix" [(ngModel)]="magasin.produitprix" name="produitprix" required />
+    </div>
+    <div>
+      <label for="category_name">Nom de la catégorie</label>
+      <select id="category_name" [(ngModel)]="magasin.category_name" name="category_name" required>
+        <option value="" disabled>Sélectionnez une catégorie</option>
+        <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+      </select>
+    </div>
+    <button type="submit">Mettre à jour</button>
+    <button type="button" (click)="router.navigate(['crud/magasin/list'])">Annuler</button>
+  </form>
+</div>

@@ -1,1 +1,56 @@
-<p>magasin-add works!</p>
+<!-- magasin-add.component.html -->
+<div class="container">
+  <h2>Ajouter un nouveau magasin</h2>
+  <form [formGroup]="magasinForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nom du magasin</label>
+      <input type="text" id="name" formControlName="name" class="form-control" />
+      <div *ngIf="magasinForm.get('name')?.invalid && (magasinForm.get('name')?.touched || magasinForm.get('name')?.dirty)" class="text-danger">
+        Le nom est requis.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="adresse">Adresse</label>
+      <input type="text" id="adresse" formControlName="adresse" class="form-control" />
+      <div *ngIf="magasinForm.get('adresse')?.invalid && (magasinForm.get('adresse')?.touched || magasinForm.get('adresse')?.dirty)" class="text-danger">
+        L'adresse est requise.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="produit">Produit</label>
+      <input type="text" id="produit" formControlName="produit" class="form-control" />
+      <div *ngIf="magasinForm.get('produit')?.invalid && (magasinForm.get('produit')?.touched || magasinForm.get('produit')?.dirty)" class="text-danger">
+        Le produit est requis.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="produitdetails">Détails du produit</label>
+      <input type="text" id="produitdetails" formControlName="produitdetails" class="form-control" />
+      <div *ngIf="magasinForm.get('produitdetails')?.invalid && (magasinForm.get('produitdetails')?.touched || magasinForm.get('produitdetails')?.dirty)" class="text-danger">
+        Les détails du produit sont requis.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="produitprix">Prix du produit</label>
+      <input type="number" id="produitprix" formControlName="produitprix" class="form-control" />
+      <div *ngIf="magasinForm.get('produitprix')?.invalid && (magasinForm.get('produitprix')?.touched || magasinForm.get('produitprix')?.dirty)" class="text-danger">
+        Le prix doit être un nombre positif.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="category_name">Nom de la catégorie</label>
+      <select id="category_name" formControlName="category_name" class="form-control">
+        <option value="" disabled selected>Sélectionnez une catégorie</option>
+        <option *ngFor="let category of categories" [value]="category.name">{{ category.name }}</option>
+      </select>
+      <div *ngIf="magasinForm.get('category_name')?.invalid && (magasinForm.get('category_name')?.touched || magasinForm.get('category_name')?.dirty)" class="text-danger">
+        Le nom de la catégorie est requis.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="magasinForm.invalid">Ajouter</button>
+  </form>
+
+  <div *ngIf="successMessage" class="alert alert-success mt-3">
+    {{ successMessage }}
+  </div>
+</div>

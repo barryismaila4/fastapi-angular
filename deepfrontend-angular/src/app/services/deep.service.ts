@@ -37,39 +37,5 @@ export class DeepService {
     return this.http.delete(`${this.apiUrl}/deletecategory/${categoryId}`);
   }
 
-  // =================== DeepMagasin =====================
-
-  getMagasins(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/getmagasin`);
-  }
-
-  addMagasin(magasin: DeepMagasin): Observable<any> {
-    return this.http.post(`${this.apiUrl}/addmagasin`, magasin);
-  }
-
-  updateMagasin(magasinId: number, magasin: DeepMagasin): Observable<any> {
-    return this.http.put(`${this.apiUrl}/updatemagasin/${magasinId}`, magasin);
-  }
-
-  deleteMagasin(magasinId: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/deletemagasin/${magasinId}`);
-  }
-
-  // =================== DeepCommande =====================
-
-  getCommandes(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/getcommande`);
-  }
-
-  addCommande(commande: DeepCommande): Observable<any> {
-    return this.http.post(`${this.apiUrl}/addcommande`, commande);
-  }
-
-  updateCommande(commandeId: number, commande: DeepCommande): Observable<any> {
-    return this.http.put(`${this.apiUrl}/updatecommande/${commandeId}`, commande);
-  }
-
-  deleteCommande(commandeId: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/deletecommande/${commandeId}`);
-  }
+ 
 }

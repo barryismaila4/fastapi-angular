@@ -1,1 +1,22 @@
-<p>commande-update works!</p>
+<!-- commande-update.component.html -->
+<div class="commande-update">
+    <h2>Mettre à jour la commande</h2>
+    <form [formGroup]="commandeForm" (ngSubmit)="onSubmit()">
+        <label for="magasin_name">Nom du magasin:</label>
+        <input id="magasin_name" formControlName="magasin_name" required>
+
+        <label for="product_name">Nom du produit:</label>
+        <input id="product_name" formControlName="product_name" required>
+
+        <label for="quantity">Quantité:</label>
+        <input id="quantity" type="number" formControlName="quantity" required>
+
+        <label for="username">Nom d'utilisateur:</label>
+        <input id="username" formControlName="username" required>
+
+        <label for="usernumber">Numéro d'utilisateur:</label>
+        <input id="usernumber" formControlName="usernumber" required>
+
+        <button type="submit">Mettre à jour</button>
+    </form>
+</div>
