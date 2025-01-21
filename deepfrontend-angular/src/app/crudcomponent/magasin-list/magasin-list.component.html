@@ -1,9 +1,14 @@
-<!-- magasin-list.component.html -->
 <div class="magasin-list">
   <h2>Liste des magasins</h2>
-  <button (click)="addMagasin()">Ajouter un magasin</button>
+  
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher un magasin..." />
+    <button class="btn search-button" (click)="searchMagasin()">Rechercher</button>
+  </div>
 
-  <table>
+  <button class="btn add-button" (click)="addMagasin()">Ajouter un magasin</button>
+
+  <table class="magasin-table">
     <thead>
       <tr>
         <th>ID</th>
@@ -17,17 +22,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let magasin of magasins">
+      <tr *ngFor="let magasin of filteredMagasins()">
         <td>{{ magasin.id }}</td>
         <td>{{ magasin.name }}</td>
         <td>{{ magasin.adresse }}</td>
         <td>{{ magasin.produit }}</td>
         <td>{{ magasin.produitdetails }}</td>
         <td>{{ magasin.produitprix }}</td>
-        <td>{{ magasin.category_name }}</td> <!-- Afficher le nom de la catégorie -->
+        <td>{{ magasin.category_name }}</td>
         <td>
-          <button (click)="editMagasin(magasin.id)">Modifier</button>
-          <button (click)="deleteMagasin(magasin.id)">Supprimer</button>
+          <button class="btn edit-button" (click)="editMagasin(magasin.id)">Modifier</button>
+          <button class="btn delete-button" (click)="deleteMagasin(magasin.id)">Supprimer</button>
         </td>
       </tr>
     </tbody>

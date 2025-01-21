@@ -120,4 +120,23 @@
       font-size: 10px;
     }
   }
-  
+  .search-container {
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px; /* Largeur du champ de recherche */
+    margin-right: 10px; /* Espacement entre le champ et le bouton */
+}
+
+.search-button {
+    background-color: #007bff; /* Couleur de fond du bouton de recherche */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+}

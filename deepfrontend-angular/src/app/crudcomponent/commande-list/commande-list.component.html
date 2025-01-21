@@ -1,5 +1,11 @@
 <div class="commande-list">
     <h2>Liste des commandes</h2>
+    
+    <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une commande..." />
+        <button class="btn search-button" (click)="searchCommande()">Rechercher</button>
+    </div>
+
     <button class="btn add-button" (click)="addCommande()">Ajouter une commande</button>
   
     <table class="commande-table">
@@ -16,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let commande of commandes">
+        <tr *ngFor="let commande of filteredCommandes()">
           <td>{{ commande.id }}</td>
           <td>{{ commande.date_commande | date:'short' }}</td>
           <td>{{ commande.magasin_name }}</td>

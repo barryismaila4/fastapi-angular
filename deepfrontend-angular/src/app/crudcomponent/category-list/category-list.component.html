@@ -1,5 +1,11 @@
 <div class="category-list">
   <h2>Liste des catégories</h2>
+  
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher une catégorie..." />
+    <button class="btn search-button" (click)="searchCategory()">Rechercher</button>
+  </div>
+
   <button class="btn add-button" (click)="addCategory()">Ajouter une catégorie</button>
 
   <table class="category-table">
@@ -11,7 +17,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let category of categories">
+      <tr *ngFor="let category of filteredCategories()">
         <td>{{ category.id }}</td>
         <td>{{ category.name }}</td>
         <td>

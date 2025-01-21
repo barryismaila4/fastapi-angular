@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Router } from '@angular/router';
 import { DeepCategory } from 'src/app/models/deep-category.model';
 import { DeepService } from 'src/app/services/deep.service';
@@ -11,6 +10,7 @@ import { DeepService } from 'src/app/services/deep.service';
 })
 export class CategoryListComponent implements OnInit {
   categories: DeepCategory[] = [];
+  searchTerm: string = ''; // Variable pour stocker la chaîne de recherche
 
   constructor(private deepService: DeepService, private router: Router) {}
 
@@ -51,5 +51,20 @@ export class CategoryListComponent implements OnInit {
     if (id !== null) {
       this.router.navigate(['crud/category/update', id]);
     }
+  }
+
+  // Méthode pour filtrer les catégories en fonction de la chaîne de recherche
+  filteredCategories(): DeepCategory[] {
+    if (!this.searchTerm) {
+      return this.categories; // Si aucune recherche, retourner toutes les catégories
+    }
+    return this.categories.filter(category => 
+      category.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+
+  // Méthode pour gérer la recherche (facultatif, car le filtrage se fait déjà dans le template)
+  searchCategory(): void {
+    // Vous pouvez ajouter une logique supplémentaire ici si nécessaire
   }
 }

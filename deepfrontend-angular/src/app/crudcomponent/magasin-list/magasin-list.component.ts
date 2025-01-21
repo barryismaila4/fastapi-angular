@@ -1,4 +1,3 @@
-// magasin-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeepMagasin } from 'src/app/models/deep-magasin.model';
@@ -14,6 +13,7 @@ import { DeepCategory } from 'src/app/models/deep-category.model';
 export class MagasinListComponent implements OnInit {
   magasins: DeepMagasin[] = [];
   categories: DeepCategory[] = []; // Pour stocker les catégories
+  searchTerm: string = ''; // Variable pour stocker la chaîne de recherche
 
   constructor(private deepmagasinService: DeepmagasinService, private deepService: DeepService, private router: Router) {}
 
@@ -66,5 +66,20 @@ export class MagasinListComponent implements OnInit {
     if (id !== null) {
       this.router.navigate(['crud/magasin/update', id]);
     }
+  }
+
+  // Méthode pour filtrer les magasins en fonction de la chaîne de recherche
+  filteredMagasins(): DeepMagasin[] {
+    if (!this.searchTerm) {
+      return this.magasins; // Si aucune recherche, retourner tous les magasins
+    }
+    return this.magasins.filter(magasin => 
+      magasin.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+  }
+
+  // Méthode pour gérer la recherche (facultatif, car le filtrage se fait déjà dans le template)
+  searchMagasin(): void {
+    // Vous pouvez ajouter une logique supplémentaire ici si nécessaire
   }
 }
