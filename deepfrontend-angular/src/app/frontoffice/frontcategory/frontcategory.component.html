@@ -1,0 +1,9 @@
+<div class="category-list">
+    <h2>Catégories disponibles</h2>
+    <ul>
+      <li *ngFor="let category of categories" (click)="showMagasins(category.id)">
+        {{ category.name }}
+      </li>
+    </ul>
+  </div>
+  

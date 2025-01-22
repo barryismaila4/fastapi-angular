@@ -47,4 +47,24 @@ export class DeepmagasinService {
   updateMagasin(magasinId: number, magasin: DeepMagasin): Observable<any> {
     return this.http.put(`${this.apiUrl}/updatemagasin/${magasinId}`, magasin);
   }
+  getMagasinsByCategory(categoryId: string): Observable<DeepMagasin[]> {
+    const url = `${this.apiUrl}/getmagasin/category/${categoryId}`;
+    console.log("Requête envoyée à l'URL : ", url);  // Ajout du log pour vérifier l'URL
+    return this.http.get<{ magasins: any[] }>(url).pipe(
+      map(response => {
+        return response.magasins.map(magasin => new DeepMagasin(
+          magasin.id,
+          magasin.name,
+          magasin.adresse,
+          magasin.produit,
+          magasin.produitdetails,
+          magasin.produitprix,
+          magasin.category_name
+        ));
+      })
+    );
+  }
+  
+  
+  
 }

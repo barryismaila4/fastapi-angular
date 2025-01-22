@@ -11,6 +11,11 @@ import { CommandeListComponent } from './crudcomponent/commande-list/commande-li
 import { CommandeAddComponent } from './crudcomponent/commande-add/commande-add.component';
 import { CommandeUpdateComponent } from './crudcomponent/commande-update/commande-update.component';
 
+import { FrontofficeComponent } from './frontoffice/frontoffice.component';
+import { FrontcategoryComponent } from './frontoffice/frontcategory/frontcategory.component';
+import { FrontmagasinComponent } from './frontoffice/frontmagasin/frontmagasin.component';
+import { FrontcommandeComponent } from './frontoffice/frontcommande/frontcommande.component';
+
 const routes: Routes = [
   {
     path: 'crud', component: CrudcomponentComponent, children: [
@@ -27,7 +32,16 @@ const routes: Routes = [
       { path: 'commande/update/:id', component: CommandeUpdateComponent }
     ]
   },
-  { path: '', redirectTo: '/crud/category/list', pathMatch: 'full' } // Redirection vers la liste des catégories par défaut
+  
+    {
+      path: 'frontoffice', component: FrontofficeComponent, children: [
+        { path: 'frontcategory', component: FrontcategoryComponent },
+        { path: 'frontmagasin', component: FrontmagasinComponent },
+        { path: 'frontcommande', component: FrontcommandeComponent }
+      ]
+    },
+    { path: '', redirectTo: '/frontoffice/frontcategory', pathMatch: 'full' } // Redirection correcte
+     // Redirection vers la liste des catégories par défaut
 ];
 
 @NgModule({

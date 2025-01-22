@@ -1,0 +1,16 @@
+<div class="magasin-list">
+    <h2>Magasins de la catégorie sélectionnée</h2>
+    <ul *ngIf="magasins.length > 0; else noMagasins">
+      <li *ngFor="let magasin of magasins">
+        <h3>{{ magasin.name }}</h3>
+        <p>Adresse: {{ magasin.adresse }}</p>
+        <p>Produit: {{ magasin.produit }}</p>
+        <p>Détails: {{ magasin.produitdetails }}</p>
+        <p>Prix: {{ magasin.produitprix }} €</p>
+      </li>
+    </ul>
+    <ng-template #noMagasins>
+      <p>Aucun magasin trouvé pour cette catégorie.</p>
+    </ng-template>
+  </div>
+  

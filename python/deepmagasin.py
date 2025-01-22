@@ -68,6 +68,42 @@ def delete_magasin(magasin_id: int):
     cursor.close()
     conn.close()
     return {"message": "Magasin supprimé avec succès!"}
+# Route pour récupérer les magasins par catégorie
+@router.get("/getmagasin/category/{category_name}")
+def get_magasin_by_category(category_name: str):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute(
+            "SELECT id, name, adresse, produit, produitdetails, produitprix, category_name FROM deepmagasin WHERE category_name = %s",
+            (category_name,)
+        )
+        magasins = cursor.fetchall()
+        cursor.close()
+        conn.close()
+
+        if not magasins:
+            raise HTTPException(status_code=404, detail="Aucun magasin trouvé pour cette catégorie")
+
+        magasin_list = []
+        for magasin in magasins:
+            magasin_list.append({
+                "id": magasin[0],
+                "name": magasin[1],
+                "adresse": magasin[2],
+                "produit": magasin[3],
+                "produitdetails": magasin[4],
+                "produitprix": magasin[5],
+                "category_name": magasin[6]
+            })
+
+        return {"magasins": magasin_list}
+    
+    except mysql.connector.Error as err:
+        cursor.close()
+        conn.close()
+        raise HTTPException(status_code=500, detail=f"Erreur lors de la récupération des magasins: {err}")
+
 
 # Route pour mettre à jour un magasin
 @router.put("/updatemagasin/{magasin_id}")
